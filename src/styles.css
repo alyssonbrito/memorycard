@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /*never counst for maring, but border and padding*/
+}
+
+body {
+  height: 100vh; /*vh 1% */
+  background: 060
+}

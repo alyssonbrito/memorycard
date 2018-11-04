@@ -1,0 +1,32 @@
+{
+  "name": "memorycard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --port 4000 --files='./src/**/*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyssonbrito/memorycard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alyssonbrito/memorycard/issues"
+  },
+  "homepage": "https://github.com/alyssonbrito/memorycard#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "browsersync": "0.0.1-security",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-serve": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1"
+  }
+}
