@@ -3,6 +3,8 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let numberOfMatches = 0;
+const totalCards = cards.length;
 
 function flipCard () {
     if (lockBoard) return;
@@ -26,7 +28,10 @@ function checkForMatch() {
     if (isMatch){
 	//bingo
 	disableCards();
-	totalMatches++;
+	numberOfMatches++;
+	if (numberOfMatches === (totalCards / 2)) {
+	    gameOverWin();
+	}
     }
     else {
 	unflipCards();
@@ -52,18 +57,43 @@ function resetBoard(){
     [firstCard,secondCard] = [null,null]
 }
 
+function gameOverWin() {
+    console.log('You win');
+    resetGame();
+}
+function resetGame() {
+    resetBoard();
+    numberOfMatches = 0;
+    setTimeout(() => {
+        unflipAllCards();
+	init();
+    },5000);
+}
+function unflipAllCards() {
+    cards.forEach(card => card.remove('flip'));
+}
+
 //IIF
-(function shuffle() {
+function shuffle() {
     cards.forEach(card => {
 	let randomPos = Math.floor(Math.random() * 12);
 	card.style.order = randomPos;
     });
 
-})();
+}
 
 function onKey(evt) {
     console.log('evt:',evt);
 
 }
 
-cards.forEach(card => card.addEventListener('click',flipCard));
+function init(){
+    shuffle();
+    cards.forEach(card => card.addEventListener('click',flipCard));
+    console.log(totalCards);
+};
+
+(function start(){
+    init();
+}
+)();
