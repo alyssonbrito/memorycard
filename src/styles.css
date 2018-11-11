@@ -6,5 +6,57 @@
 
 body {
   height: 100vh; /*vh 1% */
-  background: 060
+  background: #060AB2;
+  display: flex;
+}
+
+/*img {
+    width: 100px;
+}
+*/
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid lime;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.33% - 10px);
+  position: relative;
+  //border: 2px solid aqua;
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+.memory-card:active {
+  transform: scale(.97);
+  transition: transform .5s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  //border: 2px solid deeppink;
+  background: #1c7ccc;
+  backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+
 }
